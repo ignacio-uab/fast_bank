@@ -1,2 +1,2 @@
 # fast_bank
-Django project
+Django project for bank account management
