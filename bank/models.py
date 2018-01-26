@@ -62,7 +62,7 @@ class BankAccount (models.Model):
 class Client (models.Model):
     client_name = models.CharField(max_length=256)
     status_client = models.BooleanField (default=True)
-
+    owner = models.ForeignKey(CompanyGroup, on_delete=models.CASCADE,default="")
     def __str__(self):
         return self.client_name
 

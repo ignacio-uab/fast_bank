@@ -1,8 +1,17 @@
 from django.contrib import admin
 from .models import CompanyGroup,BankAccount,Client
 
-admin.site.register(CompanyGroup)
-admin.site.register(BankAccount)
-admin.site.register(Client)
 # Register your models here.
-# testing how to make changes
+
+class BankInLine (admin.TabularInline):
+    model=BankAccount
+    choice=4
+
+class CompanyGroupAdmin(admin.ModelAdmin):
+
+    inlines = [BankInLine]
+
+admin.site.register(CompanyGroup,CompanyGroupAdmin)
+
+admin.site.register(Client)
+
