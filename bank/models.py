@@ -91,3 +91,10 @@ class Movement(models.Model):
 
     def __str__(self):
         return self.text
+
+    def will_expire_inonemonth(self):
+        return self.expiration_date >= timezone.now() - datetime.timedelta(days=30)
+
+        will_expire_inonemonth.admin_order_field = 'expiration_date'
+        will_expire_inonemonth.boolean = True
+        will_expire_inonemonth.short_description = 'Vence en un mes?'
