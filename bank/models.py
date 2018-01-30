@@ -31,10 +31,10 @@ class TypeofPayment (models.Model):
     payment_type = models.CharField(max_length=256)
     pub_date = models.DateTimeField('date added')
     type = models.CharField(max_length=24)
-    priority = models.IntegerField
+    prioridad = models.IntegerField (default=0)
 
     def __str__(self):
-        return self.payment_type
+        return self.payment_type + " " + self.type
 
 
 class CompanyGroup (models.Model):
