@@ -36,7 +36,7 @@ class BankAccount (models.Model):
     company = models.ForeignKey(CompanyGroup, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.bic + " " + self.text
+        return self.company.company_name + " > " + self.bic + " " + self.text
 
 class Client (models.Model):
     client_name = models.CharField(max_length=256)
