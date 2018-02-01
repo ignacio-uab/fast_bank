@@ -54,9 +54,8 @@ class Client (models.Model):
 
 
 class Movement(models.Model):
-#    company = models.ForeignKey(CompanyGroup, on_delete=models.CASCADE)
+
     FORECAST = (('C','Confirmado'),('P','Previsto'),('-','Abierto'))
-#    bank = models.ForeignKey(BankAccount, on_delete=models.CASCADE)
     bank = models.OneToOneField(BankAccount, on_delete=models.CASCADE, primary_key= True)
     client = models.ForeignKey(Client,on_delete=models.CASCADE)
     type = models.ForeignKey(TypeofPayment, on_delete=models.CASCADE)
