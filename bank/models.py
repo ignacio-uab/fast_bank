@@ -36,7 +36,7 @@ class BankAccount (models.Model):
     company = models.ForeignKey(CompanyGroup, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.company.company_name + " > " + self.bic + " " + self.text
+        return self.company.company_name + " > " + self.bic + " " + self.text + " " + self.currency
 
 class Client (models.Model):
     client_name = models.CharField(max_length=256)
@@ -61,7 +61,7 @@ class Movement(models.Model):
     client = models.ForeignKey(Client,on_delete=models.CASCADE)
     type = models.ForeignKey(TypeofPayment, on_delete=models.CASCADE)
     movement_date = models.DateTimeField('date movement')
-    expiration_date = models.DateTimeField('expiration date')
+    expiration_date = models.DateTimeField('deadline date')
     text = models.CharField(max_length=256)
     amount = models.DecimalField(max_digits=10, decimal_places=2)
     estimacion = models.CharField(max_length=1, choices=FORECAST,default='-')
