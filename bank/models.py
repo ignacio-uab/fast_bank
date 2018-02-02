@@ -7,9 +7,13 @@ import datetime
 
 
 class TypeofPayment (models.Model):
+    TIPOPAGO = (
+        ('H', 'HABER'),
+        ('D', 'DEBER'),
+    )
     payment_type = models.CharField(max_length=256)
     pub_date = models.DateTimeField('date added')
-    type = models.CharField(max_length=24)
+    type = models.CharField(max_length=1,choices=TIPOPAGO)
     prioridad = models.IntegerField (default=0)
 
     def __str__(self):
@@ -56,7 +60,7 @@ class Client (models.Model):
 class Movement(models.Model):
 
     FORECAST = (('C','Confirmado'),('P','Previsto'),('-','Abierto'))
-    bank = models.OneToOneField(BankAccount, on_delete=models.CASCADE, primary_key= True)
+    bank = models.ForeignKey(BankAccount, on_delete=models.CASCADE,default='-')
     client = models.ForeignKey(Client,on_delete=models.CASCADE)
     type = models.ForeignKey(TypeofPayment, on_delete=models.CASCADE)
     movement_date = models.DateTimeField('date movement')
