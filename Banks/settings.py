@@ -38,6 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'bank.apps.BankConfig',
+    'djangobower',
+    'admin_tools_stats',
+    'django_nvd3'
     ]
 
 MIDDLEWARE = [
@@ -121,4 +124,18 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 TEMPLATE_DIRS = (os.path.join(BASE_DIR,  'templates'),)
+
+BOWER_COMPONENTS_ROOT = '/home/Nacho/PycharmProjects/fast_banks/bank/components'
+
+
+BOWER_INSTALLED_APPS = (
+    'jquery#2.0.3',
+    'jquery-ui#~1.10.3',
+    'd3#3.3.6',
+    'nvd3#1.1.12-beta',
+)
+
+STATICFILES_FINDERS = (
+    'djangobower.finders.BowerFinder',
+)
 
