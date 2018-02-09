@@ -125,7 +125,7 @@ STATIC_URL = '/static/'
 
 TEMPLATE_DIRS = (os.path.join(BASE_DIR,  'templates'),)
 
-BOWER_COMPONENTS_ROOT = '/home/Nacho/PycharmProjects/fast_banks/bank/components'
+BOWER_COMPONENTS_ROOT = '/home/Nacho/PycharmProjects/fast_banks/bank/components/'
 
 
 BOWER_INSTALLED_APPS = (
